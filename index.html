@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrazyBurguer | Street Food & Urban Flavors</title>
+    <!-- FontAwesome para Íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <!-- CSS Externo -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Barra de Navegación Principal -->
+    <nav class="barra-navegacion">
+        <div class="logo-tienda">CRAZY<span class="texto-amarillo">BURGUER</span></div>
+        <div class="enlaces-menu">
+            <a href="#inicio">Inicio</a>
+            <a href="#menu">Menú</a>
+            <a href="#nosotros">Nosotros</a>
+        </div>
+        <div class="icono-carrito" onclick="alternarCarrito()">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="contador-carrito" id="contador-productos">0</span>
+        </div>
+    </nav>
+
+    <!-- Sección de Inicio (Hero con Rotación de Videos / Propagandas) -->
+    <section id="inicio" class="seccion-hero">
+        <div class="contenido-hero">
+            <span class="insignia-hero">🔥 Sabor Urbano Auténtico</span>
+            <h1>Las Mejores <br><span class="texto-amarillo">Hamburguesas y Pepitos</span></h1>
+            <p>Hamburguesas normales y especiales, perros calientes, pepitos monumentales, salchipapas y papas fritas. ¡Pídelo a tu gusto desde el celular!</p>
+            <div class="botones-hero">
+                <a href="#menu" class="boton boton-principal"><i class="fas fa-utensils"></i> Ver Menú</a>
+                <a href="#nosotros" class="boton boton-secundario">Conócenos</a>
+            </div>
+        </div>
+        <div class="contenedor-multimedia-hero">
+            <video id="reproductor-video-1" class="video-hero activo" autoplay muted playsinline preload="auto"></video>
+            <video id="reproductor-video-2" class="video-hero" muted playsinline preload="auto"></video>
+        </div>
+    </section>
+
+    <!-- Sección del Menú -->
+    <section id="menu" class="seccion-menu">
+        <h2 class="titulo-seccion">Nuestro <span class="texto-amarillo">Menú</span></h2>
+        
+        <!-- Pestañas de Categorías -->
+        <div class="contenedor-pestanas">
+            <button class="boton-pestana activa" onclick="filtrarCategoria('burgers', this)">
+                <i class="fas fa-hamburger"></i> Hamburguesas
+            </button>
+            <button class="boton-pestana" onclick="filtrarCategoria('hotdogs', this)">
+                <i class="fas fa-hotdog"></i> Perros Calientes
+            </button>
+            <button class="boton-pestana" onclick="filtrarCategoria('pepitos', this)">
+                <i class="fas fa-bread-slice"></i> Pepitos
+            </button>
+            <button class="boton-pestana" onclick="filtrarCategoria('salchipapas', this)">
+                <i class="fas fa-french-fries"></i> Salchipapas
+            </button>
+            <button class="boton-pestana" onclick="filtrarCategoria('papas', this)">
+                <i class="fas fa-utensils"></i> Papas Fritas
+            </button>
+            <button class="boton-pestana" onclick="filtrarCategoria('bebidas', this)">
+                <i class="fas fa-wine-bottle"></i> Bebidas
+            </button>
+        </div>
+
+        <!-- Cuadrícula donde se cargan los productos -->
+        <div class="cuadricula-menu" id="cuadricula-productos"></div>
+    </section>
+
+    <!-- Sección Nosotros -->
+    <section id="nosotros" class="seccion-nosotros">
+        <div class="tarjeta-nosotros">
+            <h2>¿Por qué somos <span class="texto-amarillo">CRAZIES</span>?</h2>
+            <p>Preparamos cada plato con ingredientes frescos, salsas de la casa y porciones callejeras auténticas que matan cualquier antojo.</p>
+        </div>
+    </section>
+
+    <!-- Pie de Página -->
+    <footer class="pie-pagina">
+        <div class="logo-pie">CRAZY<span class="texto-amarillo">BURGUER</span></div>
+        <p>&copy; 2026 CrazyBurguer Street Food. Todos los derechos reservados.</p>
+        <div class="enlaces-sociales">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </footer>
+
+    <!-- Ventana Modal de Personalización -->
+    <div class="fondo-modal" id="modal-personalizacion">
+        <div class="caja-modal">
+            <div class="cabecera-modal">
+                <h3 id="titulo-producto-modal">Personaliza tu producto</h3>
+                <button class="boton-cerrar-modal" onclick="cerrarModalPersonalizacion()">&times;</button>
+            </div>
+            <div class="cuerpo-modal" id="opciones-personalizacion"></div>
+            <div class="pie-modal">
+                <button class="boton boton-principal boton-ancho" id="boton-confirmar-personalizacion">Agregar al Carrito</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carrito Desplegable Lateral -->
+    <div class="fondo-oscuro-carrito" id="fondo-carrito" onclick="alternarCarrito()"></div>
+    <div class="barra-lateral-carrito" id="panel-carrito">
+        <div class="cabecera-carrito">
+            <h3>Tu Pedido Crazy</h3>
+            <button class="boton-cerrar-carrito" onclick="alternarCarrito()">&times;</button>
+        </div>
+        <div class="lista-items-carrito" id="contenedor-items-carrito"></div>
+        <div class="pie-carrito">
+            <!-- Estado automático de la Ubicación GPS -->
+            <div class="caja-ubicacion">
+                <p><i class="fas fa-map-marker-alt texto-amarillo"></i> Estado del GPS:</p>
+                <p id="estado-gps">Esperando permiso...</p>
+            </div>
+
+            <!-- Sección de Datos de Pago Móvil (Modifica aquí tus datos reales cuando gustes) -->
+            <div class="caja-pago-movil">
+                <h4><i class="fas fa-mobile-alt texto-amarillo"></i> Datos de Pago Móvil</h4>
+                <div class="fila-dato-pago">
+                    <span><strong>Banco:</strong> <span id="banco-pm">[Tu Banco]</span></span>
+                    <button class="boton-copiar" onclick="copiarTexto('banco-pm')"><i class="far fa-copy"></i></button>
+                </div>
+                <div class="fila-dato-pago">
+                    <span><strong>Teléfono:</strong> <span id="telefono-pm">0424-XXXXXXX</span></span>
+                    <button class="boton-copiar" onclick="copiarTexto('telefono-pm')"><i class="far fa-copy"></i></button>
+                </div>
+                <div class="fila-dato-pago">
+                    <span><strong>Cédula/RIF:</strong> <span id="cedula-pm">V-XXXXXXXX</span></span>
+                    <button class="boton-copiar" onclick="copiarTexto('cedula-pm')"><i class="far fa-copy"></i></button>
+                </div>
+            </div>
+
+            <div class="fila-total">
+                <span>Total:</span>
+                <span class="texto-amarillo" id="monto-total">$0.00</span>
+            </div>
+            <button class="boton boton-principal boton-ancho" onclick="enviarPedidoWhatsApp()">
+                <i class="fab fa-whatsapp"></i> Mandar Pedido
+            </button>
+        </div>
+    </div>
+
+    <!-- Notificación Flotante (Toast) -->
+    <div class="notificacion-toast" id="alerta-toast">¡Producto agregado al carrito!</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
