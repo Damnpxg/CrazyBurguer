@@ -120,7 +120,7 @@ function filtrarCategoria(nombreCategoria, botonPresionado) {
     if (nombreCategoria === 'burgers') {
         const tituloNormales = document.createElement('h3');
         tituloNormales.className = 'subtitulo-categoria';
-        tituloNormales.innerText = '🍔 Hamburguesas Normales ($5.5)';
+        tituloNormales.innerText = 'Hamburguesas Normales';
         contenedorMenu.appendChild(tituloNormales);
 
         const cuadriculaNormales = document.createElement('div');
@@ -136,7 +136,7 @@ function filtrarCategoria(nombreCategoria, botonPresionado) {
 
         const tituloEspeciales = document.createElement('h3');
         tituloEspeciales.className = 'subtitulo-categoria';
-        tituloEspeciales.innerText = '🔥 Hamburguesas Especiales y Mixtas ($7 - $8.5)';
+        tituloEspeciales.innerText = 'Hamburguesas Especiales y Mixtas';
         contenedorMenu.appendChild(tituloEspeciales);
 
         const cuadriculaEspeciales = document.createElement('div');
@@ -392,7 +392,7 @@ function enviarPedidoWhatsApp() {
         return;
     }
     
-    let mensajeWhatsApp = "¡Hola CrazyBurguer! 🍔 Quiero realizar este pedido:\n\n";
+    let mensajeWhatsApp = "¡Hola CrazyBurguer! Quiero realizar este pedido:\n\n";
     let sumaTotal = 0;
     
     listaCarrito.forEach(item => {
