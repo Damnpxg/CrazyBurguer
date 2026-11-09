@@ -485,8 +485,9 @@ body {
 }
 
 .fondo-oscuro-carrito.activo {
-    opacity: 1;
+    visibility: visible;
     pointer-events: all;
+  opacity: 1;
 }
 
 /* Carrito Desplegable */
