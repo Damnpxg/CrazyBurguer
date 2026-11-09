@@ -38,13 +38,15 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.2rem 8%;
+    padding: 1.2rem 4%;
     background: rgba(18, 18, 18, 0.95);
     backdrop-filter: blur(12px);
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 100;
+    left: 0;
+    z-index: 1000;
+    box-sizing: border-box;
     border-bottom: 2px solid var(--amarillo-principal);
 }
 
@@ -68,17 +70,23 @@ body {
 
 .icono-carrito {
     position: relative;
-    font-size: 1.4rem;
-    cursor: pointer;
     background: var(--amarillo-principal);
     color: var(--negro-principal);
-    padding: 0.6rem 0.9rem;
-    border-radius: 12px;
+    border-radius: 50%;
+    width: 42px;
+    right: 3%;
+    top: 3%;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0; /* Evita que el botón se aplaste o deforme en pantallas pequeñas */
     transition: transform 0.2s;
 }
 
 .icono-carrito:hover {
-    transform: scale(1.05);
+    transform: scale(1.10);
 }
 
 .contador-carrito {
@@ -492,23 +500,22 @@ body {
     
 }
 
-/* Panel lateral del carrito adaptado para móviles */
 .barra-lateral-carrito {
     position: fixed;
     top: 0;
-    right: -100%; /* Se oculta completamente fuera de la pantalla */
-    width: 85%;   /* Ocupa el 85% de la pantalla para evitar desbordes en iPhone */
+    right: -100%;
+    width: 85%;
     max-width: 380px;
-    height: 100%;
-    background: var(--fondo-tarjeta);
+    height: 100dvh !important;
+    height: 100% !important;
+    background: var(--fondo-tarjeta, #1a1a1a);
     border-left: 2px solid var(--amarillo-principal);
     z-index: 201;
     transition: right 0.3s ease;
-    display: flex;
-    flex-direction: column;
+    display: flex !important;
+    flex-direction: column !important; /* 👈 Vital para ordenar los elementos en fila vertical */
     padding: 1.5rem;
-    box-sizing: border-box;
-    overflow-y: auto;
+    box-sizing: border-box !important;
 }
 
 .barra-lateral-carrito.activo {
@@ -533,8 +540,8 @@ body {
 }
 
 .lista-items-carrito {
-    flex: 1;
-    overflow-y: auto;
+    flex: 1 !important;
+    overflow-y: auto !important;
     padding: 1rem 1.5rem;
 }
 
@@ -584,10 +591,11 @@ body {
 
 .pie-carrito {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 1rem 1.2rem; /* Reducimos el espacio general */
-    margin-bottom: 2.5rem;
+    padding: 1rem 1rem; /* Reducimos el espacio general */
+    margin-bottom: 2rem;
     background: var(--fondo-tarjeta);
     box-shadow: 0 -5px 15px rgba(0,0,0,0.5);
+    margin-top: auto !important;
 }
 
 .caja-ubicacion {
@@ -606,9 +614,12 @@ body {
 }
 
 #estado-gps {
+  margin-top: auto;
     font-size: 0.9rem;
     color: var(--amarillo-principal);
-    font-weight: 750;
+    font-weight: 700;
+    flex-shrink: 0;
+
 }
 
 .fila-total {
