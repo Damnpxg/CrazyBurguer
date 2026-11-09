@@ -470,47 +470,35 @@ body {
     height: 18px;
 }
 
-/* Carrito Desplegable */
-.fondo-oscuro-carrito {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0,0,0,0.75);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s;
-    z-index: 200;
-}
-
 .fondo-oscuro-carrito.activo {
     visibility: visible;
     pointer-events: all;
-  opacity: 1;
+    opacity: 1;
 }
 
-/* Carrito Desplegable */
+/* Fondo oscuro del carrito */
 .fondo-oscuro-carrito {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0,0,0,0.75);
+    width: 100dvw;
+    height: 100dvh;
+    background: rgba(0, 0, 0, 0.75);
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s;
+    transition: opacity 0.3s ease;
     z-index: 200;
+    
 }
 
+/* Panel lateral del carrito adaptado para móviles */
 .barra-lateral-carrito {
     position: fixed;
     top: 0;
-    right: -400px;
-    width: 100%;
+    right: -100%; /* Se oculta completamente fuera de la pantalla */
+    width: 85%;   /* Ocupa el 85% de la pantalla para evitar desbordes en iPhone */
     max-width: 380px;
-    height: 100vh;
+    height: 100%;
     background: var(--fondo-tarjeta);
     border-left: 2px solid var(--amarillo-principal);
     z-index: 201;
@@ -518,6 +506,8 @@ body {
     display: flex;
     flex-direction: column;
     padding: 1.5rem;
+    box-sizing: border-box;
+    overflow-y: auto;
 }
 
 .barra-lateral-carrito.activo {
