@@ -8,10 +8,7 @@
     --texto-gris: #b0b0b0;
 }
 
-/* Ajuste global de escala para evitar que se vea demasiado grande en celulares pequeños */
-html {
-    zoom: 80%; 
-}
+
 
 
 * {
