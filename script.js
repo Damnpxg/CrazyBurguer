@@ -24,11 +24,15 @@ const baseDatosMenu = {
     ],
     pepitos: [
         { id: 15, nombre: "Pepito Mini (Carne, Pollo o Mixtos)", descripcion: "Pan granjero, lechuga, tomate, papas ralladas, queso amarillo, maíz, tocineta + papas fritas.", precio: 8.00, imagen: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=500&q=80" },
-        { id: 16, nombre: "Pepito Grande (Carne, Pollo o Mixtos)", descripcion: "Pan canilla, lechuga, tomate, papas ralladas, queso amarillo, maíz, tocineta + papas fritas.", precio: 14.00, imagen: "https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=500&q=80" }
-    ],
+        { id: 16, nombre: "Pepito Grande (Carne, Pollo o Mixtos)", descripcion: "Pan canilla, lechuga, tomate, papas ralladas, queso amarillo, maíz, tocineta + papas fritas.", precio: 14.00, imagen: "https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=500&q=80" },
+        { id: 25, nombre: "Shawarma de Carne", descripcion: "Pan árabe, carne jugosa, vegetales frescos, salsa de la casa y papas.", precio: 7.00, imagen: "https://images.unsplash.com/photo-1529006557810-274b9b2fc783?auto=format&fit=crop&w=500&q=80" },
+        { id: 26, nombre: "Shawarma de Pollo", descripcion: "Pan árabe, pollo marinado, vegetales frescos, salsa de la casa y papas.", precio: 7.00, imagen: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=500&q=80" }
+    ],   
     salchipapas: [
         { id: 17, nombre: "Salchipapa Pequeña", descripcion: "Salchichas, pollo crispy, queso amarillo, 300g de papas.", precio: 6.00, imagen: "https://images.unsplash.com/photo-1585109649139-366815a0d713?auto=format&fit=crop&w=500&q=80" },
-        { id: 18, nombre: "Salchipapa Grande", descripcion: "Salchichas, pollo crispy, queso amarillo, 500g de papas.", precio: 9.00, imagen: "https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?auto=format&fit=crop&w=500&q=80" }
+        { id: 18, nombre: "Salchipapa Grande", descripcion: "Salchichas, pollo crispy, queso amarillo, 500g de papas.", precio: 9.00, imagen: "https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?auto=format&fit=crop&w=500&q=80" },
+        { id: 23, nombre: "Club House Pequeña", descripcion: "Deliciosa club house tamaño pequeño con todos los ingredientes.", precio: 8.00, imagen: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80" },
+        { id: 24, nombre: "Club House Grande", descripcion: "Deliciosa club house tamaño grande con porción doble.", precio: 14.00, imagen: "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=500&q=80" }
     ],
     papas: [
         { id: 19, nombre: "Ración de Papas Fritas", descripcion: "Porción de papas fritas (250g).", precio: 3.50, imagen: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=500&q=80" }
@@ -46,7 +50,7 @@ let productoSeleccionadoActual = null;
 let categoriaActualTipo = "";
 let enlaceUbicacionGPS = "";
 
-// 🎬 Lista de videos de propaganda (usando tus nombres de archivo)
+// 🎬 Lista de videos de propaganda
 const listaPropagandasVideos = [
     "Samy.mp4",
     "two.mp4",
@@ -54,7 +58,6 @@ const listaPropagandasVideos = [
 ];
 
 let indiceVideoActual = 0;
-let reproductorActivoNum = 1;
 
 // Inicializar la página
 document.addEventListener('DOMContentLoaded', () => {
@@ -69,7 +72,6 @@ function iniciarReproductorSinPausas() {
 
     if (!videoElem1 || !videoElem2) return;
 
-    // Cargar y reproducir el primer video
     videoElem1.src = listaPropagandasVideos[0];
     videoElem1.load();
     videoElem1.play().catch(() => {
@@ -77,24 +79,19 @@ function iniciarReproductorSinPausas() {
         videoElem1.play();
     });
 
-    // Precargar el siguiente video en segundo plano
     precargarSiguienteVideo(videoElem2);
 
-    // Eventos al finalizar cada reproductor
     videoElem1.onended = () => alternarVideo(videoElem1, videoElem2);
     videoElem2.onended = () => alternarVideo(videoElem2, videoElem1);
 }
 
 function alternarVideo(videoActual, videoSiguiente) {
-    // Avanzar el índice en bucle infinito
     indiceVideoActual = (indiceVideoActual + 1) % listaPropagandasVideos.length;
 
-    // Reproducción instantánea del video ya precargado
-    videoSiguiente.play('activo');
+    videoSiguiente.play().catch(() => {});
     videoSiguiente.classList.add('activo');
     videoActual.classList.remove('activo');
 
-    // Precargar el siguiente elemento de la lista en el reproductor oculto
     setTimeout(() => {
         precargarSiguienteVideo(videoActual);
     }, 400);
@@ -105,7 +102,6 @@ function precargarSiguienteVideo(reproductorOculto) {
     reproductorOculto.src = listaPropagandasVideos[siguienteIndice];
     reproductorOculto.load();
 }
-
 
 // Función para filtrar y mostrar el menú por pestañas
 function filtrarCategoria(nombreCategoria, botonPresionado) {
@@ -136,7 +132,7 @@ function filtrarCategoria(nombreCategoria, botonPresionado) {
 
         const tituloEspeciales = document.createElement('h3');
         tituloEspeciales.className = 'subtitulo-categoria';
-        tituloEspeciales.innerText = 'Hamburguesas Especiales y Mixtas';
+        tituloEspeciales.innerText = 'Especiales y Mixtas';
         contenedorMenu.appendChild(tituloEspeciales);
 
         const cuadriculaEspeciales = document.createElement('div');
@@ -167,6 +163,15 @@ function filtrarCategoria(nombreCategoria, botonPresionado) {
 function crearTarjetaProducto(producto, categoria) {
     const tarjeta = document.createElement('div');
     tarjeta.className = 'tarjeta-producto';
+    
+    // Texto dinámico para el botón según la categoría
+    let textoBoton = "Personalizar";
+    if (categoria === 'bebidas') {
+        textoBoton = producto.tipoBebida === 'refresco' ? 'Elegir Sabor' : 'Agregar Nota';
+    } else if (categoria === 'salchipapas' || categoria === 'papas') {
+        textoBoton = 'Agregar';
+    }
+
     tarjeta.innerHTML = `
         <div>
             <img src="${producto.imagen}" alt="${producto.nombre}" class="imagen-producto">
@@ -175,27 +180,60 @@ function crearTarjetaProducto(producto, categoria) {
         </div>
         <div class="pie-tarjeta">
             <span class="precio-producto">$${producto.precio.toFixed(2)}</span>
-            <button class="boton-agregar" onclick="abrirModalPersonalizacion(${producto.id}, '${categoria}')">
-                <i class="fas fa-plus"></i> ${categoria === 'bebidas' ? (producto.tipoBebida === 'refresco' ? 'Elegir Sabor' : 'Agregar Nota') : 'Personalizar'}
+            <button class="boton-agregar" onclick="manejarAccionProducto(${producto.id}, '${categoria}')">
+                <i class="fas fa-plus"></i> ${textoBoton}
             </button>
         </div>
     `;
     return tarjeta;
 }
 
-// Abrir el modal flotante para personalizar ingredientes o sabores
-function abrirModalPersonalizacion(idProducto, categoria) {
+// Controla si abre modal o agrega directo (Salchipapas, Club House, Papas van directas; Bebidas abre modal de sabores; Burgers, Perros, Pepitos, Shawarmas abren modal)
+function manejarAccionProducto(idProducto, categoria) {
     let listaBusqueda = [];
     if (categoria === 'burgers-normales') listaBusqueda = baseDatosMenu.burgers.normales;
     else if (categoria === 'burgers-especiales') listaBusqueda = baseDatosMenu.burgers.especiales;
     else listaBusqueda = baseDatosMenu[categoria];
 
-    productoSeleccionadoActual = listaBusqueda.find(item => item.id === idProducto);
+    const productoEncontrado = listaBusqueda.find(item => item.id === idProducto);
+    if (!productoEncontrado) return;
+
+    // Solo salchipapas y papas van directas sin modal. Bebidas, hamburguesas, perros y pepitos (incluyendo shawarmas) abren su modal correspondiente.
+    if (categoria === 'salchipapas' || categoria === 'papas') {
+        agregarDirectoAlCarritoSinModal(productoEncontrado);
+    } else {
+        abrirModalPersonalizacion(productoEncontrado, categoria);
+    }
+}
+
+// Función para agregar al carrito de forma directa (sin modales)
+function agregarDirectoAlCarritoSinModal(producto) {
+    const identificadorItemCarrito = `${producto.id}-Sin modificaciones`;
+    const productoExistente = listaCarrito.find(item => item.identificadorItemCarrito === identificadorItemCarrito);
+
+    if (productoExistente) {
+        productoExistente.cantidad++;
+    } else {
+        listaCarrito.push({
+            ...producto,
+            identificadorItemCarrito: identificadorItemCarrito,
+            modificaciones: "Sin modificaciones",
+            cantidad: 1
+        });
+    }
+
+    actualizarInterfazCarrito();
+    mostrarNotificacionToast();
+}
+
+// Abrir el modal flotante para personalizar ingredientes o elegir sabores de bebidas
+function abrirModalPersonalizacion(producto, categoria) {
+    productoSeleccionadoActual = producto;
     categoriaActualTipo = categoria;
     
     document.getElementById('titulo-producto-modal').innerText = productoSeleccionadoActual.nombre;
     const contenedorOpciones = document.getElementById('opciones-personalizacion');
-    
+
     if (categoria === 'bebidas' && productoSeleccionadoActual.tipoBebida === 'refresco') {
         contenedorOpciones.innerHTML = `
             <h4>Elige el sabor del refresco:</h4>
@@ -338,7 +376,7 @@ function actualizarInterfazCarrito() {
         elementoItem.innerHTML = `
             <div class="info-item-carrito">
                 <h4>${item.nombre}</h4>
-                <p>${item.modifications || item.modificaciones}</p>
+                <p>${item.modificaciones || item.modifications}</p>
                 <span>$${(item.precio * item.cantidad).toFixed(2)}</span>
             </div>
             <div class="controles-cantidad">
@@ -412,51 +450,3 @@ function enviarPedidoWhatsApp() {
     const mensajeCodificado = encodeURIComponent(mensajeWhatsApp);
     window.open(`https://wa.me/584244629938?text=${mensajeCodificado}`, '_blank');
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
