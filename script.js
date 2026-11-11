@@ -11,9 +11,12 @@ const baseDatosMenu = {
             { id: 5, nombre: "Especial de Pollo", descripcion: "Lechuga, tomate, papas ralladas, queso amarillo, huevo, maíz, tocineta + papas fritas.", precio: 7.00, imagen: "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=500&q=80" },
             { id: 6, nombre: "Pollo Crispy", descripcion: "Lechuga, tomate, papas ralladas, queso amarillo, huevo, maíz, tocineta + papas fritas.", precio: 7.00, imagen: "https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?auto=format&fit=crop&w=500&q=80" },
             { id: 7, nombre: "Especial de Chuleta", descripcion: "Lechuga, tomate, papas ralladas, queso amarillo, huevo, maíz, tocineta + papas fritas.", precio: 7.00, imagen: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=500&q=80" },
-            { id: 8, nombre: "Carne y Pollo (Mixta)", descripcion: "Lechuga, tomate, papas ralladas, queso amarillo, huevo, maíz, tocineta + papas fritas.", precio: 8.50, imagen: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=500&q=80" },
-            { id: 9, nombre: "Pollo y Chuleta (Mixta)", descripcion: "Lechuga, tomate, papas ralladas, queso amarillo, huevo, maíz, tocineta + papas fritas.", precio: 8.50, imagen: "https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=500&q=80" },
-            { id: 10, nombre: "Chuleta y Carne (Mixta)", descripcion: "Lechuga, tomate, papas ralladas, queso amarillo, huevo, maíz, tocineta + papas fritas.", precio: 8.50, imagen: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80" }
+            { id: 8, nombre: "Carne & Pollo (Mixta)", descripcion: "Lechuga, tomate, papas ralladas, queso amarillo, huevo, maíz, tocineta + papas fritas.", precio: 8.50, imagen: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=500&q=80" },
+            { id: 9, nombre: "Pollo & Chuleta (Mixta)", descripcion: "Lechuga, tomate, papas ralladas, queso amarillo, huevo, maíz, tocineta + papas fritas.", precio: 8.50, imagen: "https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=500&q=80" },
+            { id: 10, nombre: "Chuleta & Carne (Mixta)", descripcion: "Lechuga, tomate, papas ralladas, queso amarillo, huevo, maíz, tocineta + papas fritas.", precio: 8.50, imagen: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80" },
+            { id: 27, nombre: "Carne & Crispy (Mixta)", descripcion: "Lechuga, tomate, papas ralladas, queso amarillo, huevo, maiz, tocineta + papas fritas.", precio: 8.50, imagen: ""},
+            { id: 28, nombre: "Pollo & Crispy (Mixta)", descripcion: "Lechuga, tomate, papas ralladas, queso amarillo, huevo maiz, tocineta + papas fritas.", precio: 8.50, imagen: ""},
+            { id: 29, nombre: "Chuleta & Crispy (Mixta)", descripcion: "Lechuga, tomate, papas ralladas, queso amarillo, huevo, maiz, tocineta + papas fritas.", precio: 8.50, imagen: ""}
         ]
     },
     hotdogs: [
@@ -31,7 +34,7 @@ const baseDatosMenu = {
     salchipapas: [
         { id: 17, nombre: "Salchipapa Pequeña", descripcion: "Salchichas, pollo crispy, queso amarillo, 300g de papas.", precio: 6.00, imagen: "Salchipe.png" },
         { id: 18, nombre: "Salchipapa Grande", descripcion: "Salchichas, pollo crispy, queso amarillo, 500g de papas.", precio: 9.00, imagen: "https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?auto=format&fit=crop&w=500&q=80" },
-        { id: 23, nombre: "Club House Pequeña", descripcion: "Deliciosa club house tamaño pequeño con todos los ingredientes.", precio: 8.00, imagen: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80" },
+        { id: 23, nombre: "Club House Pequeño", descripcion: "Deliciosa club house tamaño pequeño con todos los ingredientes.", precio: 8.00, imagen: "club.png" },
         { id: 24, nombre: "Club House Grande", descripcion: "Deliciosa club house tamaño grande con porción doble.", precio: 14.00, imagen: "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=500&q=80" }
     ],
     papas: [
