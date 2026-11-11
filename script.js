@@ -29,7 +29,7 @@ const baseDatosMenu = {
         { id: 26, nombre: "Shawarma de Pollo", descripcion: "Pan árabe, pollo marinado, vegetales frescos, salsa de la casa y papas.", precio: 7.00, imagen: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=500&q=80" }
     ],   
     salchipapas: [
-        { id: 17, nombre: "Salchipapa Pequeña", descripcion: "Salchichas, pollo crispy, queso amarillo, 300g de papas.", precio: 6.00, imagen: "https://images.unsplash.com/photo-1585109649139-366815a0d713?auto=format&fit=crop&w=500&q=80" },
+        { id: 17, nombre: "Salchipapa Pequeña", descripcion: "Salchichas, pollo crispy, queso amarillo, 300g de papas.", precio: 6.00, imagen: "Salchipe.png" },
         { id: 18, nombre: "Salchipapa Grande", descripcion: "Salchichas, pollo crispy, queso amarillo, 500g de papas.", precio: 9.00, imagen: "https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?auto=format&fit=crop&w=500&q=80" },
         { id: 23, nombre: "Club House Pequeña", descripcion: "Deliciosa club house tamaño pequeño con todos los ingredientes.", precio: 8.00, imagen: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80" },
         { id: 24, nombre: "Club House Grande", descripcion: "Deliciosa club house tamaño grande con porción doble.", precio: 14.00, imagen: "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=500&q=80" }
