@@ -259,7 +259,6 @@ function abrirModalPersonalizacion(producto, categoria) {
             <label class="opcion-personalizada"><input type="checkbox" value="Sin lechuga"> Sin lechuga</label>
             <label class="opcion-personalizada"><input type="checkbox" value="Sin tomate"> Sin tomate</label>
             <label class="opcion-personalizada"><input type="checkbox" value="Sin cebolla"> Sin cebolla</label>
-            <label class="opcion-personalizada"><input type="checkbox" value="Sin salsas"> Sin salsas</label>
             <label class="opcion-personalizada"><input type="checkbox" value="Sin queso"> Sin queso</label>
             
             <h4 style="margin-top: 1rem;">Notas especiales:</h4>
