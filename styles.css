@@ -289,7 +289,7 @@ body {
 }
 
 .imagen-producto {
-    width: 100%;
+    width: 130%;
     height: 160px;
     object-fit: cover;
     border-radius: 12px;
