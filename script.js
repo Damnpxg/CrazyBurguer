@@ -2,12 +2,12 @@
 const baseDatosMenu = {
     burgers: {
         normales: [
-            { id: 1, nombre: "Normal de Carne", descripcion: "Carne de 90 gramos, lechuga, tomate, papas ralladas + queso amarillo.", precio: 5.50, imagen: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80" },
-            { id: 2, nombre: "Normal de Pollo", descripcion: "Milanesa de pollo, lechuga, tomate, papas ralladas + queso amarillo.", precio: 5.50, imagen: "https://images.unsplash.com/photo-1625813506062-0aeb1d7a094b?auto=format&fit=crop&w=500&q=80" },
-            { id: 3, nombre: "Normal de Chuleta", descripcion: "Chuleta ahumada, lechuga, tomate, papas ralladas + queso amarillo.", precio: 5.50, imagen: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=500&q=80" }
+            { id: 1, nombre: "Normal de Carne", descripcion: "Carne de 90 gramos, lechuga, tomate, papas ralladas + queso amarillo.", precio: 5.50, imagen: "Normal.png" },
+            { id: 2, nombre: "Normal de Pollo", descripcion: "Milanesa de pollo, lechuga, tomate, papas ralladas + queso amarillo.", precio: 5.50, imagen: "Normal.png" },
+            { id: 3, nombre: "Normal de Chuleta", descripcion: "Chuleta ahumada, lechuga, tomate, papas ralladas + queso amarillo.", precio: 5.50, imagen: "Normal.png" }
         ],
         especiales: [
-            { id: 4, nombre: "Especial de Carne", descripcion: "2 carnes de 90 gramos, lechuga, tomate, maíz, tocineta, huevo, papas ralladas, queso amarillo + papas fritas.", precio: 7.00, imagen: "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=500&q=80" },
+            { id: 4, nombre: "Especial de Carne", descripcion: "2 carnes de 90 gramos, lechuga, tomate, maíz, tocineta, huevo, papas ralladas, queso amarillo + papas fritas.", precio: 7.00, imagen: "Espe.png" },
             { id: 5, nombre: "Especial de Pollo", descripcion: "Lechuga, tomate, papas ralladas, queso amarillo, huevo, maíz, tocineta + papas fritas.", precio: 7.00, imagen: "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=500&q=80" },
             { id: 6, nombre: "Pollo Crispy", descripcion: "Lechuga, tomate, papas ralladas, queso amarillo, huevo, maíz, tocineta + papas fritas.", precio: 7.00, imagen: "https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?auto=format&fit=crop&w=500&q=80" },
             { id: 7, nombre: "Especial de Chuleta", descripcion: "Lechuga, tomate, papas ralladas, queso amarillo, huevo, maíz, tocineta + papas fritas.", precio: 7.00, imagen: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=500&q=80" },
