@@ -1,7 +1,7 @@
 /* ====== CONFIGURA AQUÍ ====== */
-const WA = "58XXXXXXXXXX"; // WhatsApp del negocio: 58 + número sin 0
+const WA = "584244629938"; // WhatsApp del negocio: 58 + número sin 0
 const PAGO = { banco: "[Tu Banco]", tel: "0424-XXXXXXX", id: "V-XXXXXXXX" };
-const HERO_IMGS = ["img/hero1.jpg", "img/hero2.jpg", "img/hero3.jpg"]; // opcionales
+const HERO_IMGS = ["Salchipe.png", "img/hero2.jpg", "img/hero3.jpg"]; // opcionales
 
 /* Productos: [categoría, grupo, nombre, descripción, precio, tipo]
    tipo: p = Personalizar, a = Agregar directo, n = Agregar nota */
@@ -167,10 +167,9 @@ $("#send").onclick = () => {
   m += `\n*Total: ${$("#total").textContent}*`;
   if (pos) m += `\n📍 Mi ubicación: https://www.google.com/maps?q=${pos.lat},${pos.lng}`;
   m += "\n\nPagaré por Pago Móvil. Enviaré el comprobante.";
-  window.open(`https://wa.me/584244629938/${WA}?text=${encodeURIComponent(m)}`, "_blank", "noopener");
-  $("#waLink").href = `https://wa.me/584244629938${WA}`;
-
+  window.open(`https://wa.me/${WA}?text=${encodeURIComponent(m)}`, "_blank", "noopener");
 };
+$("#waLink").href = `https://wa.me/${WA}`;
 
 /* ====== NAV ACTIVO + HERO ====== */
 const links = document.querySelectorAll(".links a");
