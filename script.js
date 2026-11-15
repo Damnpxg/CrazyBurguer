@@ -167,9 +167,17 @@ $("#send").onclick = () => {
   m += `\n*Total: ${$("#total").textContent}*`;
   if (pos) m += `\n📍 Mi ubicación: https://www.google.com/maps?q=${pos.lat},${pos.lng}`;
   m += "\n\nPagaré por Pago Móvil. Enviaré el comprobante.";
-  window.open(`https://wa.me/584244629938${WA}?text=${encodeURIComponent(m)}`, "_blank", "noopener");
-};
-$("#waLink").href = `https://wa.me/584244629938${WA}`;
+  const PHONE = "584244629938";
+
+window.open(
+  `https://wa.me/${PHONE}?text=${encodeURIComponent(m)}`,
+  "_blank",
+  "noopener"
+);
+  $("#waLink").href = `https://wa.me/${PHONE}`;
+}
+
+
 
 /* ====== NAV ACTIVO + HERO ====== */
 const links = document.querySelectorAll(".links a");
