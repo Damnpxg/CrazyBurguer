@@ -1,12 +1,4 @@
-:root{
-  --y:#fcc00f;
-  --bg:#0f0f0f;
-  --card:#1a1a1a;
-  --line:#2b2b2b;
-  --mut:#a3a3a3;
-  --r:18px
-  
-}
+:root{ --y:#fcc00f; --bg:#0f0f0f;--card:#1a1a1a; --line:#2b2b2b;--mut:#a3a3a3;--r:18px}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:90px;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 html.lock,html.lock body{overflow:hidden}
