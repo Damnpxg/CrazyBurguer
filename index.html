@@ -1,158 +1,95 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CrazyBurguer | Street Food & Urban Flavors</title>
-    <!-- FontAwesome para Íconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Permanent+Marker&display=swap" rel="stylesheet">
-    <!-- CSS Externo -->
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f0f0f">
+<title>CrazyBurguer | Las mejores hamburguesas de La Isabelica</title>
+<meta name="description" content="Hamburguesas, perros calientes, pepitos, shawarmas y salchipapas. Pide desde el celular.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:ital,wght@0,400;0,600;0,800;1,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<header class="nav">
+  <a class="logo" href="#inicio"><b>CRAZY</b>BURGUER</a>
+  <nav class="links">
+    <a href="#inicio" data-s="inicio">Inicio</a>
+    <a href="#menu" data-s="menu">Menú</a>
+    <a href="#nosotros" data-s="nosotros">Nosotros</a>
+  </nav>
+  <button class="cart-btn" id="openCart" aria-label="Abrir carrito">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M6 8h12l1 13H5L6 8zm3-1a3 3 0 0 1 6 0h-2a1 1 0 0 0-2 0H9z"/></svg>
+    <span class="badge" id="badge">0</span>
+  </button>
+</header>
 
-    <!-- Barra de Navegación Principal -->
-    <nav class="barra-navegacion">
-        <div class="logo-tienda">CRAZY<span class="texto-amarillo">BURGUER</span></div>
-        <div class="enlaces-menu">
-            <a href="#inicio">Inicio</a>
-            <a href="#menu">Menú</a>
-            <a href="#nosotros">Nosotros</a>
-        </div>
-        <div class="icono-carrito" onclick="alternarCarrito()">
-            <i class="fas fa-shopping-bag"></i>
-            <span class="contador-carrito" id="contador-productos">0</span>
-        </div>
-    </nav>
-
-    <!-- Sección de Inicio (Hero con Rotación de Videos / Propagandas) -->
-    <section id="inicio" class="seccion-hero">
-        <div class="contenido-hero">
-            <span class="insignia-hero">Sabor Urbano Auténtico</span>
-            <h1>Las Mejores <br><span class="texto-amarillo">Hamburguesas de la isabelica </span></h1>
-            <p>Hamburguesas normales & especiales, perros calientes, pepitos monumentales, salchipapas y MUCHO MÁS. ¡Pídelo a tu gusto desde el celular!</p>
-            <div class="botones-hero">
-                <a href="#menu" class="boton boton-principal"><i class="fas fa-utensils"></i> Ver Menú</a>
-                <a href="#nosotros" class="boton boton-secundario">Conócenos</a>
-            </div>
-        </div>
-        <div class="contenedor-multimedia-hero">
-            <video id="reproductor-video-1" class="video-hero activo" autoplay muted playsinline preload="auto"></video>
-            <video id="reproductor-video-2" class="video-hero" muted playsinline preload="auto"></video>
-        </div>
-    </section>
-
-    <!-- Sección del Menú -->
-    <section id="menu" class="seccion-menu">
-        <h2 class="titulo-seccion">Nuestro <span class="texto-amarillo">Menú</span></h2>
-        
-        <!-- Pestañas de Categorías -->
-        <div class="contenedor-pestanas">
-            <button class="boton-pestana activa" onclick="filtrarCategoria('burgers', this)">
-                <i class="fas fa-hamburger"></i> Hamburguesas
-            </button>
-            <button class="boton-pestana" onclick="filtrarCategoria('hotdogs', this)">
-                <i class="fas fa-hotdog"></i> Perros Calientes
-            </button>
-            <button class="boton-pestana" onclick="filtrarCategoria('pepitos', this)">
-                <i class="fas fa-bread-slice"></i> Pepitos & Shawarmas
-            </button>
-            <button class="boton-pestana" onclick="filtrarCategoria('salchipapas', this)">
-                <i class="fas fa-utensils"></i> Salchipapas & ClubHouse
-            </button>
-            <button class="boton-pestana" onclick="filtrarCategoria('papas', this)">
-                <i class="fas fa-utensils"></i> Papas Fritas
-            </button>
-            <button class="boton-pestana" onclick="filtrarCategoria('bebidas', this)">
-                <i class="fas fa-wine-bottle"></i> Bebidas
-            </button>
-          
-        </div>
-
-        <!-- Cuadrícula donde se cargan los productos -->
-        <div class="cuadricula-menu" id="cuadricula-productos"></div>
-    </section>
-
-    <!-- Sección Nosotros -->
-    <section id="nosotros" class="seccion-nosotros">
-        <div class="tarjeta-nosotros">
-            <h2>¿Por qué comer en <span class="texto-amarillo">CrazyBurguer</span>?</h2>
-            <p>Preparamos cada plato con ingredientes frescos, salsas de la casa y porciones callejeras auténticas que matan cualquier antojo.</p>
-        </div>
-    </section>
-
-    <!-- Pie de Página -->
-    <footer class="pie-pagina">
-        <div class="logo-pie">CRAZY<span class="texto-amarillo">BURGUER</span></div>
-        <p>&copy; 2026 CrazyBurguer Street Food. Todos los derechos reservados.</p>
-        <div class="enlaces-sociales">
-            <a href="https://www.instagram.com/burg_crazy?obrf=MW5kY3I4Y3MzZTN1Yw==" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.tiktok.com/@crazy.burguer?_r=1&_t=ZS-9BFHGbiNm1R" target="_blank"><i class="fab fa-tiktok"></i></a>
-            <a href="https://wa.me/584244629938" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        </div>
-    </footer>
-
-    <!-- Ventana Modal de Personalización -->
-    <div class="fondo-modal" id="modal-personalizacion">
-        <div class="caja-modal">
-            <div class="cabecera-modal">
-                <h3 id="titulo-producto-modal">Personaliza tu producto</h3>
-                <button class="boton-cerrar-modal" onclick="cerrarModalPersonalizacion()">&times;</button>
-            </div>
-            <div class="cuerpo-modal" id="opciones-personalizacion"></div>
-            <div class="pie-modal">
-                <button class="boton boton-principal boton-ancho" id="boton-confirmar-personalizacion">Agregar al Carrito</button>
-            </div>
-        </div>
+<main>
+<section class="hero" id="inicio">
+  <div class="hero-txt">
+    <span class="tag">Sabor Urbano Auténtico</span>
+    <h1>Las Mejores <em>Hamburguesas de la Isabelica</em></h1>
+    <p>Hamburguesas normales y especiales, perros calientes, pepitos monumentales, salchipapas y MUCHO MÁS. ¡Pídelo a tu gusto desde el celular!</p>
+    <div class="btns">
+      <a class="btn" href="#menu">🍴 Ver Menú</a>
+      <a class="btn ghost" href="#nosotros">Conócenos</a>
     </div>
+  </div>
+  <div class="hero-frame" id="heroFrame"><span class="ph">🍔</span></div>
+</section>
 
-    <!-- Carrito Desplegable Lateral -->
-    <div class="fondo-oscuro-carrito" id="fondo-carrito" onclick="alternarCarrito()"></div>
-    <div class="barra-lateral-carrito" id="panel-carrito">
-        <div class="cabecera-carrito">
-            <h3>Tu Pedido Crazy</h3>
-            <button class="boton-cerrar-carrito" onclick="alternarCarrito()">&times;</button>
-        </div>
-        <div class="lista-items-carrito" id="contenedor-items-carrito"></div>
-        <div class="pie-carrito">
-            <!-- Estado automático de la Ubicación GPS -->
-            <div class="caja-ubicacion">
-                <p><i class="fas fa-map-marker-alt texto-amarillo"></i> Estado del GPS:</p>
-                <p id="estado-gps">Esperando permiso...</p>
-            </div>
+<section class="menu" id="menu">
+  <h2 class="title">Nuestro <em>Menú</em></h2>
+  <div class="tabs" id="tabs"></div>
+  <div id="list"></div>
+</section>
 
-            <!-- Sección de Datos de Pago Móvil (Modifica aquí tus datos reales cuando gustes) -->
-            <div class="caja-pago-movil">
-                <h4><i class="fas fa-mobile-alt texto-amarillo"></i> Datos de Pago Móvil</h4>
-                <div class="fila-dato-pago">
-                    <span><strong>Banco:</strong> <span id="banco-pm">[Tu Banco]</span></span>
-                    <button class="boton-copiar" onclick="copiarTexto('banco-pm')"><i class="far fa-copy"></i></button>
-                </div>
-                <div class="fila-dato-pago">
-                    <span><strong>Teléfono:</strong> <span id="telefono-pm">0424-XXXXXXX</span></span>
-                    <button class="boton-copiar" onclick="copiarTexto('telefono-pm')"><i class="far fa-copy"></i></button>
-                </div>
-                <div class="fila-dato-pago">
-                    <span><strong>Cédula/RIF:</strong> <span id="cedula-pm">V-XXXXXXXX</span></span>
-                    <button class="boton-copiar" onclick="copiarTexto('cedula-pm')"><i class="far fa-copy"></i></button>
-                </div>
-            </div>
+<section class="why" id="nosotros">
+  <div class="why-box">
+    <h2>¿Por qué comer en <em>CrazyBurguer</em>?</h2>
+    <p>Preparamos cada plato con ingredientes frescos, salsas de la casa y porciones callejeras auténticas que matan cualquier antojo.</p>
+  </div>
+</section>
+</main>
 
-            <div class="fila-total">
-                <span>Total:</span>
-                <span class="texto-amarillo" id="monto-total">$0.00</span>
-            </div>
-            <button class="boton boton-principal boton-ancho" onclick="enviarPedidoWhatsApp()">
-                <i class="fab fa-whatsapp"></i> Mandar Pedido
-            </button>
-        </div>
+<footer class="foot">
+  <div class="logo"><b>CRAZY</b>BURGUER</div>
+  <p>© 2026 CrazyBurguer Street Food. Todos los derechos reservados.</p>
+  <div class="social">
+    <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+    <a href="https://tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor"><path d="M16 3h-3v12.5a2.5 2.5 0 1 1-2.5-2.5c.3 0 .5 0 .8.1V10a5.6 5.6 0 1 0 4.7 5.5V9a7 7 0 0 0 4 1.3V7.3A4.3 4.3 0 0 1 16 3z"/></svg></a>
+    <a id="waLink" href="#" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21l1.6-4.7A9 9 0 1 1 8 19.5L3 21z"/></svg></a>
+  </div>
+</footer>
+
+<div class="overlay" id="overlay"></div>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle" hidden>
+  <div class="modal-box">
+    <div class="m-head"><h3 id="mTitle"></h3><button class="x" id="mClose" aria-label="Cerrar">✕</button></div>
+    <div id="mBody"></div>
+    <button class="btn full" id="mAdd">Agregar al Carrito</button>
+  </div>
+</div>
+
+<aside class="cart" id="cart" aria-label="Carrito" aria-hidden="true">
+  <div class="cart-head"><h3>Tu Pedido</h3><button class="x" id="cClose" aria-label="Cerrar carrito">✕</button></div>
+  <div class="cart-items" id="cItems"></div>
+  <div class="cart-foot">
+    <div class="box gps">📍 Estado del GPS:<strong id="gps">Sin solicitar</strong></div>
+    <div class="box pay">
+      <h4>📱 Datos de Pago Móvil</h4>
+      <div class="row"><span><b>Banco:</b> <i id="pBank"></i></span><button class="copy" data-c="pBank" aria-label="Copiar banco">⧉</button></div>
+      <div class="row"><span><b>Teléfono:</b> <i id="pTel"></i></span><button class="copy" data-c="pTel" aria-label="Copiar teléfono">⧉</button></div>
+      <div class="row"><span><b>Cédula/RIF:</b> <i id="pId"></i></span><button class="copy" data-c="pId" aria-label="Copiar cédula">⧉</button></div>
     </div>
+    <div class="total"><span>Total:</span><strong id="total">$0.00</strong></div>
+    <button class="btn full" id="send">Mandar Pedido</button>
+  </div>
+</aside>
 
-    <!-- Notificación Flotante (Toast) -->
-    <div class="notificacion-toast" id="alerta-toast">¡Producto agregado al carrito!</div>
-
-    <script src="script.js"></script>
+<div class="toast" id="toast" role="status"></div>
+<script src="script.js"></script>
 </body>
 </html>
