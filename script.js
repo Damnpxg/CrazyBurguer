@@ -3,14 +3,14 @@
    ===================================================== */
 const NUMERO_WHATSAPP = "584244629938"; // formato internacional: 58 + número sin el 0 inicial
 const DATOS_PAGO_MOVIL = { banco: "[Tu Banco]", telefono: "0424-XXXXXXX", cedula: "V-XXXXXXXX" };
-const FOTOS_PORTADA = ["chuleta-carne-mixta.png", "normal-de-pollo.jpg", "img/hero3.jpg"]; // opcionales
+const FOTOS_PORTADA = ["img/hero1.jpg", "img/hero2.jpg", "img/hero3.jpg"]; // opcionales
 
 // Videos tipo propaganda (se reproducen solos, sin sonido y en bucle, como un GIF).
 // Pon tus archivos en la carpeta "video/". Puedes agregar todos los que quieras.
 const VIDEOS_PROPAGANDA = [
-  { archivo: "Samy.mp4", titulo: "Hamburguesas demenciales" },
-  { archivo: "tree.mp4", titulo: "Los mejores Perros Palientes" },
-  { archivo: "two.mp4", titulo: "Club House de locos" }
+  { archivo: "Samy.mp4", titulo: "Hamburguesas al estilo callejero" },
+  { archivo: "tree.mp4", titulo: "Perros monumentales" },
+  { archivo: "two.mp4", titulo: "ClubHouse bien cargados" }
   // { archivo: "video/promo4.mp4", titulo: "Tu texto aquí" },
 ];
 
@@ -23,44 +23,54 @@ const CATEGORIAS = [
   { id: "bebidas", nombre: "Bebidas", emoji: "" }
 ];
 
-/* Tipos de botón:
+/* Cada producto se escribe así:
+   producto("categoría", "subtítulo", "Nombre", "Descripción", precio, "tipo de botón", "nombre-de-la-foto.jpg")
+
+   Tipos de botón:
    "personalizar" = abre la ventana para quitar ingredientes y escribir nota
    "agregar"      = lo agrega directo al carrito
-   "nota"         = abre la ventana solo con una nota (bebidas) */
-function producto(categoria, grupo, nombre, descripcion, precio, tipoBoton) {
-  return { categoria, grupo, nombre, descripcion, precio, tipoBoton };
+   "nota"         = abre la ventana solo con una nota (bebidas)
+
+   FOTO: es el último dato de cada línea. Cámbialo por el nombre de tu archivo
+   (el archivo debe estar dentro de la carpeta indicada en CARPETA_FOTOS).
+   Puedes usar cualquier nombre y extensión: "mi-foto.png", "burger1.webp", etc.
+   Si lo dejas vacío (""), se usa el nombre del producto automáticamente. */
+const CARPETA_FOTOS = "img/";
+
+function producto(categoria, grupo, nombre, descripcion, precio, tipoBoton, foto) {
+  return { categoria, grupo, nombre, descripcion, precio, tipoBoton, foto };
 }
 const DESCRIPCION_ESPECIAL = "Lechuga, tomate, papas ralladas, queso amarillo, huevo, maíz, tocineta + papas fritas.";
 
 const PRODUCTOS = [
-  producto("hamburguesas", "Hamburguesas Normales", "Normal de Carne", "Carne de 90 gramos, lechuga, tomate, papas ralladas + queso amarillo.", 5.5, "personalizar"),
-  producto("hamburguesas", "Hamburguesas Normales", "Normal de Pollo", "Milanesa de pollo, lechuga, tomate, papas ralladas + queso amarillo.", 5.5, "personalizar"),
-  producto("hamburguesas", "Hamburguesas Normales", "Normal de Chuleta", "Chuleta ahumada, lechuga, tomate, papas ralladas + queso amarillo.", 5.5, "personalizar"),
-  producto("hamburguesas", "Especiales y Mixtas", "Especial de Carne", DESCRIPCION_ESPECIAL, 7, "personalizar"), // EDITAR: no se vio en el vídeo
-  producto("hamburguesas", "Especiales y Mixtas", "Pollo Crispy", DESCRIPCION_ESPECIAL, 7, "personalizar"),
-  producto("hamburguesas", "Especiales y Mixtas", "Especial de Chuleta", DESCRIPCION_ESPECIAL, 7, "personalizar"),
-  producto("hamburguesas", "Especiales y Mixtas", "Carne & Pollo (Mixta)", DESCRIPCION_ESPECIAL, 8.5, "personalizar"),
-  producto("hamburguesas", "Especiales y Mixtas", "Pollo & Chuleta (Mixta)", DESCRIPCION_ESPECIAL, 8.5, "personalizar"),
-  producto("hamburguesas", "Especiales y Mixtas", "Chuleta & Carne (Mixta)", DESCRIPCION_ESPECIAL, 8.5, "personalizar"),
-  producto("hamburguesas", "Especiales y Mixtas", "Carne & Crispy (Mixta)", DESCRIPCION_ESPECIAL, 8.5, "personalizar"),
-  producto("hamburguesas", "Especiales y Mixtas", "Pollo & Crispy (Mixta)", DESCRIPCION_ESPECIAL, 8.5, "personalizar"),
-  producto("hamburguesas", "Especiales y Mixtas", "Chuleta & Crispy (Mixta)", DESCRIPCION_ESPECIAL, 8.5, "personalizar"),
+  producto("hamburguesas", "Hamburguesas Normales", "Normal de Carne", "Carne de 90 gramos, lechuga, tomate, papas ralladas + queso amarillo.", 5.5, "personalizar", "normal-de-carne.jpg"),
+  producto("hamburguesas", "Hamburguesas Normales", "Normal de Pollo", "Milanesa de pollo, lechuga, tomate, papas ralladas + queso amarillo.", 5.5, "personalizar", "normal-de-pollo.png"),
+  producto("hamburguesas", "Hamburguesas Normales", "Normal de Chuleta", "Chuleta ahumada, lechuga, tomate, papas ralladas + queso amarillo.", 5.5, "personalizar", "normal-de-chuleta.jpg"),
+  producto("hamburguesas", "Especiales y Mixtas", "Especial de Carne", DESCRIPCION_ESPECIAL, 7, "personalizar", "especial-de-carne.jpg"), // EDITAR: no se vio en el vídeo
+  producto("hamburguesas", "Especiales y Mixtas", "Pollo Crispy", DESCRIPCION_ESPECIAL, 7, "personalizar", "pollo-crispy.jpg"),
+  producto("hamburguesas", "Especiales y Mixtas", "Especial de Chuleta", DESCRIPCION_ESPECIAL, 7, "personalizar", "especial-de-chuleta.jpg"),
+  producto("hamburguesas", "Especiales y Mixtas", "Carne & Pollo (Mixta)", DESCRIPCION_ESPECIAL, 8.5, "personalizar", "carne-pollo-mixta.jpg"),
+  producto("hamburguesas", "Especiales y Mixtas", "Pollo & Chuleta (Mixta)", DESCRIPCION_ESPECIAL, 8.5, "personalizar", "pollo-chuleta-mixta.jpg"),
+  producto("hamburguesas", "Especiales y Mixtas", "Chuleta & Carne (Mixta)", DESCRIPCION_ESPECIAL, 8.5, "personalizar", "chuleta-carne-mixta.png"),
+  producto("hamburguesas", "Especiales y Mixtas", "Carne & Crispy (Mixta)", DESCRIPCION_ESPECIAL, 8.5, "personalizar", "carne-crispy-mixta.jpg"),
+  producto("hamburguesas", "Especiales y Mixtas", "Pollo & Crispy (Mixta)", DESCRIPCION_ESPECIAL, 8.5, "personalizar", "pollo-crispy-mixta.jpg"),
+  producto("hamburguesas", "Especiales y Mixtas", "Chuleta & Crispy (Mixta)", DESCRIPCION_ESPECIAL, 8.5, "personalizar", "chuleta-crispy-mixta.jpg"),
 
-  producto("perros", "Perros Calientes", "Perro Normal", "Ensalada, cebolla, papas ralladas, queso amarillo + salsas.", 2, "personalizar"),
-  producto("perros", "Perros Calientes", "Perro Especial", "Ensalada, cebolla, papas ralladas, queso amarillo, maíz + salsas.", 2.5, "personalizar"),
+  producto("perros", "Perros Calientes", "Perro Normal", "Ensalada, cebolla, papas ralladas, queso amarillo + salsas.", 2, "personalizar", "perro-normal.jpg"),
+  producto("perros", "Perros Calientes", "Perro Especial", "Ensalada, cebolla, papas ralladas, queso amarillo, maíz + salsas.", 2.5, "personalizar", "perro-especial.jpg"),
 
-  producto("pepitos", "Pepitos", "Pepito Mini (Carne, Pollo o Mixtos)", "Pan granjero, lechuga, tomate, papas ralladas, queso amarillo, maíz, tocineta + papas fritas.", 8, "personalizar"),
-  producto("pepitos", "Pepitos", "Pepito Grande (Carne, Pollo o Mixtos)", "Pan canilla, lechuga, tomate, papas ralladas, queso amarillo, maíz, tocineta + papas fritas.", 14, "personalizar"),
-  producto("pepitos", "Shawarmas", "Shawarma de Carne", "Pan árabe, carne jugosa, vegetales frescos, salsa de la casa y papas.", 7, "personalizar"),
-  producto("pepitos", "Shawarmas", "Shawarma de Pollo", "Pan árabe, pollo marinado, vegetales frescos, salsa de la casa y papas.", 7, "personalizar"),
+  producto("pepitos", "Pepitos", "Pepito Mini (Carne, Pollo o Mixtos)", "Pan granjero, lechuga, tomate, papas ralladas, queso amarillo, maíz, tocineta + papas fritas.", 8, "personalizar", "pepito-mini-carne-pollo-o-mixtos.jpg"),
+  producto("pepitos", "Pepitos", "Pepito Grande (Carne, Pollo o Mixtos)", "Pan canilla, lechuga, tomate, papas ralladas, queso amarillo, maíz, tocineta + papas fritas.", 14, "personalizar", "pepito-grande-carne-pollo-o-mixtos.jpg"),
+  producto("pepitos", "Shawarmas", "Shawarma de Carne", "Pan árabe, carne jugosa, vegetales frescos, salsa de la casa y papas.", 7, "personalizar", "shawarma-de-carne.jpg"),
+  producto("pepitos", "Shawarmas", "Shawarma de Pollo", "Pan árabe, pollo marinado, vegetales frescos, salsa de la casa y papas.", 7, "personalizar", "shawarma-de-pollo.jpg"),
 
-  producto("salchipapas", "Salchipapas & ClubHouse", "Salchipapa Pequeña", "Salchichas, pollo crispy, queso amarillo, 300g de papas.", 6, "agregar"),
+  producto("salchipapas", "Salchipapas & ClubHouse", "Salchipapa Pequeña", "Salchichas, pollo crispy, queso amarillo, 300g de papas.", 6, "agregar", "salchipapa-pequena.jpg"),
   // EDITAR: agrega aquí las otras salchipapas y los ClubHouse con su precio
 
-  producto("papas", "Papas Fritas", "Ración de Papas Fritas", "Porción de papas fritas (250g).", 3.5, "agregar"),
+  producto("papas", "Papas Fritas", "Ración de Papas Fritas", "Porción de papas fritas (250g).", 3.5, "agregar", "racion-de-papas-fritas.jpg"),
 
-  producto("bebidas", "Bebidas", "Nestea", "Bebida refrescante.", 1.5, "nota"),
-  producto("bebidas", "Bebidas", "Refresco de Botella", "Bebida fría.", 0, "nota") // EDITAR: precio no visible en el vídeo
+  producto("bebidas", "Bebidas", "Nestea", "Bebida refrescante.", 1.5, "nota", "nestea.jpg"),
+  producto("bebidas", "Bebidas", "Refresco de Botella", "Bebida fría.", 0, "nota", "refresco-de-botella.jpg") // EDITAR: precio no visible en el vídeo
 ];
 
 const INGREDIENTES_QUITABLES = ["lechuga", "tomate", "cebolla", "queso"];
@@ -108,6 +118,12 @@ function dibujarPestanas() {
   ).join("");
 }
 
+// Ruta completa de la foto de un producto: carpeta + nombre del archivo
+function rutaFoto(p) {
+  const archivo = p.foto ? p.foto : nombreParaArchivo(p.nombre) + ".jpg";
+  return CARPETA_FOTOS + encodeURIComponent(archivo);
+}
+
 function dibujarProductos() {
   const productosDeLaCategoria = PRODUCTOS.filter(p => p.categoria === categoriaActiva);
   const emoji = CATEGORIAS.find(c => c.id === categoriaActiva).emoji;
@@ -125,7 +141,7 @@ function dibujarProductos() {
     const posicion = PRODUCTOS.indexOf(p);   // sirve para encontrar el producto al hacer clic
     html += `<article class="card">
       <div class="media"><span class="emoji-respaldo">${emoji}</span>
-        <img src="img/${nombreParaArchivo(p.nombre)}.jpg" alt="${escaparHtml(p.nombre)}" loading="lazy" onerror="this.remove()"></div>
+        <img src="${rutaFoto(p)}" alt="${escaparHtml(p.nombre)}" loading="lazy" onerror="this.remove()"></div>
       <h3>${escaparHtml(p.nombre)}</h3><p>${escaparHtml(p.descripcion)}</p>
       <div class="zona-compra"><span class="price">${p.precio ? formatearPrecio(p.precio) : "Consultar"}</span>
       <button class="add" data-posicion="${posicion}">${textoBoton}</button></div></article>`;
