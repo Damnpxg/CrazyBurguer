@@ -8,9 +8,9 @@ const FOTOS_PORTADA = ["img/hero1.jpg", "img/hero2.jpg", "img/hero3.jpg"]; // op
 // Videos tipo propaganda (se reproducen solos, sin sonido y en bucle, como un GIF).
 // Pon tus archivos en la carpeta "video/". Puedes agregar todos los que quieras.
 const VIDEOS_PROPAGANDA = [
-  { archivo: "video/promo1.mp4", titulo: "Hamburguesas al estilo callejero" },
-  { archivo: "video/promo2.mp4", titulo: "Pepitos monumentales" },
-  { archivo: "video/promo3.mp4", titulo: "Salchipapas bien cargadas" }
+  { archivo: "Samy.mp4", titulo: "Hamburguesas demenciales" },
+  { archivo: "tree.mp4", titulo: "Los mejores Perros Palientes" },
+  { archivo: "two.mp4", titulo: "Club House de locos" }
   // { archivo: "video/promo4.mp4", titulo: "Tu texto aquí" },
 ];
 
