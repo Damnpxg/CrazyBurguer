@@ -15,12 +15,12 @@ const VIDEOS_PROPAGANDA = [
 ];
 
 const CATEGORIAS = [
-  { id: "hamburguesas", nombre: "Hamburguesas", emoji: "🍔" },
-  { id: "perros", nombre: "Perros Calientes", emoji: "🌭" },
-  { id: "pepitos", nombre: "Pepitos & Shawarmas", emoji: "🥪" },
-  { id: "salchipapas", nombre: "Salchipapas & ClubHouse", emoji: "🍟" },
-  { id: "papas", nombre: "Papas Fritas", emoji: "🍟" },
-  { id: "bebidas", nombre: "Bebidas", emoji: "🥤" }
+  { id: "hamburguesas", nombre: "Hamburguesas", emoji: "" },
+  { id: "perros", nombre: "Perros Calientes", emoji: "" },
+  { id: "pepitos", nombre: "Pepitos & Shawarmas", emoji: "" },
+  { id: "salchipapas", nombre: "Salchipapas & ClubHouse", emoji: "" },
+  { id: "papas", nombre: "Papas Fritas", emoji: "" },
+  { id: "bebidas", nombre: "Bebidas", emoji: "" }
 ];
 
 /* Tipos de botón:
