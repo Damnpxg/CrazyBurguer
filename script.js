@@ -3,7 +3,7 @@
    ===================================================== */
 const NUMERO_WHATSAPP = "584244629938"; // formato internacional: 58 + número sin el 0 inicial
 const DATOS_PAGO_MOVIL = { banco: "[Tu Banco]", telefono: "0424-XXXXXXX", cedula: "V-XXXXXXXX" };
-const FOTOS_PORTADA = ["img/hero1.jpg", "img/hero2.jpg", "img/hero3.jpg"]; // opcionales
+const FOTOS_PORTADA = ["Espe.png", "img/hero2.jpg", "img/hero3.jpg"]; // opcionales
 
 // Videos tipo propaganda (se reproducen solos, sin sonido y en bucle, como un GIF).
 // Pon tus archivos en la carpeta "video/". Puedes agregar todos los que quieras.
